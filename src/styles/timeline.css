@@ -94,6 +94,29 @@
   line-height: 1.55;
 }
 
+.timeline-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  border: 1px solid rgba(201, 160, 90, 0.58);
+  padding: 0.72rem 0.9rem;
+  background: rgba(142, 47, 43, 0.24);
+  color: var(--parchment);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.timeline-card__link:hover,
+.timeline-card__link:focus-visible {
+  background: rgba(142, 47, 43, 0.38);
+  transform: translateY(-1px);
+}
+
 @media (max-width: 700px) {
   .timeline-list::before {
     left: 1.5rem;

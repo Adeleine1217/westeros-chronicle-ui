@@ -54,6 +54,8 @@ export const timelineEras = [
     summary:
       "Crowns bend, fields burn, and a new capital begins as an idea carried on wings.",
     featured: true,
+    chapterHref: "#aegons-conquest-chapter",
+    chapterLabel: "Enter chapter",
   },
   {
     id: "targaryen-dynasty",

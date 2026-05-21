@@ -1,0 +1,453 @@
+.conquest-chapter {
+  position: relative;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  scroll-margin-top: 5rem;
+}
+
+.conquest-chapter::before {
+  position: absolute;
+  inset: 2rem -20vw auto;
+  z-index: -1;
+  height: 34rem;
+  content: "";
+  background:
+    radial-gradient(circle at 74% 35%, rgba(208, 111, 60, 0.22), transparent 18rem),
+    radial-gradient(circle at 20% 20%, rgba(201, 160, 90, 0.12), transparent 16rem),
+    linear-gradient(180deg, rgba(16, 13, 12, 0), rgba(16, 13, 12, 0.88));
+  pointer-events: none;
+}
+
+.conquest-hero {
+  position: relative;
+  display: grid;
+  min-height: 34rem;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: stretch;
+  border: 1px solid rgba(232, 212, 168, 0.18);
+  background:
+    linear-gradient(120deg, rgba(142, 47, 43, 0.16), transparent 48%),
+    linear-gradient(180deg, rgba(32, 24, 20, 0.92), rgba(16, 13, 12, 0.94));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.conquest-hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(rgba(232, 212, 168, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 212, 168, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+  pointer-events: none;
+}
+
+.conquest-hero__copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: end;
+  padding: clamp(1.2rem, 4vw, 3rem);
+}
+
+.conquest-hero h2 {
+  max-width: 10ch;
+  font-size: clamp(3.1rem, 7vw, 6.8rem);
+  line-height: 0.88;
+}
+
+.conquest-hero__subtitle {
+  width: min(36rem, 100%);
+  margin: 1.2rem 0 0;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.conquest-hero__intro {
+  width: min(44rem, 100%);
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.conquest-hero__artifact {
+  position: relative;
+  z-index: 1;
+  min-height: 25rem;
+  border-left: 1px solid rgba(232, 212, 168, 0.14);
+  background:
+    radial-gradient(circle at 68% 35%, rgba(208, 111, 60, 0.58), transparent 4.6rem),
+    radial-gradient(circle at 56% 30%, rgba(245, 234, 212, 0.24), transparent 1.7rem),
+    linear-gradient(145deg, rgba(12, 10, 9, 0.1), rgba(12, 10, 9, 0.84)),
+    url("../assets/archive-map.svg") center / cover no-repeat;
+  overflow: hidden;
+}
+
+.conquest-hero__artifact::before,
+.conquest-hero__artifact::after {
+  position: absolute;
+  content: "";
+}
+
+.conquest-hero__artifact::before {
+  right: 14%;
+  top: 18%;
+  width: 54%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(232, 212, 168, 0.24);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(232, 212, 168, 0.18) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(232, 212, 168, 0.14) 50%, transparent 51%);
+}
+
+.conquest-hero__artifact::after {
+  left: 18%;
+  bottom: 18%;
+  width: 58%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ember), transparent);
+  box-shadow: 0 0 28px rgba(208, 111, 60, 0.9);
+  transform: rotate(-18deg);
+}
+
+.conquest-hero__artifact span,
+.conquest-hero__artifact strong {
+  position: absolute;
+  z-index: 1;
+  color: var(--parchment);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.conquest-hero__artifact span {
+  right: 12%;
+  top: 14%;
+}
+
+.conquest-hero__artifact strong {
+  left: 12%;
+  bottom: 16%;
+}
+
+.conquest-hero__artifact i {
+  position: absolute;
+  right: 22%;
+  top: 32%;
+  width: 4.8rem;
+  height: 1.35rem;
+  background: rgba(12, 10, 9, 0.78);
+  clip-path: polygon(0 50%, 35% 0, 100% 18%, 42% 52%, 100% 88%, 36% 100%);
+  filter: drop-shadow(0 0 18px rgba(208, 111, 60, 0.62));
+  transform: rotate(-18deg);
+}
+
+.conquest-block {
+  padding: clamp(3.5rem, 7vw, 6rem) 0 0;
+}
+
+.conquest-block .section-heading h3,
+.political-panel h3,
+.tone-panel h3 {
+  font-size: clamp(1.9rem, 4vw, 3.65rem);
+}
+
+.conquest-prose {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.conquest-prose p {
+  margin: 0;
+  border-top: 1px solid rgba(201, 160, 90, 0.32);
+  padding-top: 1rem;
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 2vw, 1.38rem);
+  line-height: 1.7;
+}
+
+.conquest-card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.conquest-card-grid--figures {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.archive-plaque,
+.dragon-card,
+.location-plaque {
+  border: 1px solid rgba(232, 212, 168, 0.16);
+  background:
+    linear-gradient(180deg, rgba(232, 212, 168, 0.08), rgba(232, 212, 168, 0.015)),
+    rgba(19, 15, 13, 0.78);
+}
+
+.archive-plaque {
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.05rem;
+}
+
+.archive-plaque p,
+.dragon-card p {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.archive-plaque h4,
+.dragon-card h4,
+.location-plaque h4,
+.conquest-event h4 {
+  margin: 0.55rem 0 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.archive-plaque span,
+.dragon-card span,
+.conquest-event span,
+.location-plaque p,
+.political-panel p,
+.political-panel li {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.archive-plaque span {
+  display: block;
+  margin-top: 0.9rem;
+}
+
+.archive-plaque strong,
+.dragon-card strong {
+  display: block;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.dragon-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.dragon-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  min-height: 16rem;
+  padding: 1.05rem;
+}
+
+.dragon-card__mark {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(232, 212, 168, 0.22);
+  background:
+    radial-gradient(circle, rgba(208, 111, 60, 0.72), rgba(142, 47, 43, 0.38) 48%, rgba(16, 13, 12, 0.86) 50%),
+    var(--charcoal-3);
+  box-shadow: 0 0 24px rgba(208, 111, 60, 0.22);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.7rem;
+}
+
+.location-plaque {
+  min-height: 12rem;
+  padding: 0.9rem;
+}
+
+.location-plaque h4 {
+  font-size: 1.05rem;
+}
+
+.location-plaque p {
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+}
+
+.conquest-event-list {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.conquest-event-list::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: 1px;
+  content: "";
+  background: linear-gradient(180deg, transparent, rgba(208, 111, 60, 0.72), transparent);
+}
+
+.conquest-event {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.conquest-event__index {
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  place-items: center;
+  border: 1px solid rgba(208, 111, 60, 0.64);
+  background: rgba(20, 14, 12, 0.96);
+  color: var(--parchment);
+  font-family: Georgia, "Times New Roman", serif;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.conquest-event > div:last-child {
+  border: 1px solid rgba(232, 212, 168, 0.14);
+  padding: 1rem;
+  background: rgba(19, 15, 13, 0.72);
+}
+
+.conquest-event p {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.conquest-event span {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.political-panel,
+.tone-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  border: 1px solid rgba(232, 212, 168, 0.18);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background:
+    linear-gradient(110deg, rgba(142, 47, 43, 0.16), transparent 56%),
+    rgba(19, 15, 13, 0.82);
+}
+
+.political-panel__copy p {
+  margin: 0 0 1rem;
+}
+
+.political-panel ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.political-panel li {
+  border-top: 1px solid rgba(201, 160, 90, 0.24);
+  padding-top: 0.65rem;
+}
+
+.tone-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.tone-list span {
+  border: 1px solid rgba(201, 160, 90, 0.36);
+  padding: 0.65rem 0.8rem;
+  background: rgba(232, 212, 168, 0.06);
+  color: var(--parchment);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .conquest-hero,
+  .political-panel,
+  .tone-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .conquest-hero__artifact {
+    min-height: 20rem;
+    border-left: 0;
+    border-top: 1px solid rgba(232, 212, 168, 0.14);
+  }
+
+  .conquest-card-grid--figures,
+  .dragon-ledger,
+  .location-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .conquest-chapter {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  .conquest-prose,
+  .conquest-card-grid--figures,
+  .dragon-ledger,
+  .location-grid,
+  .political-panel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-plaque,
+  .dragon-card,
+  .location-plaque {
+    min-height: auto;
+  }
+
+  .conquest-event-list::before {
+    left: 1.5rem;
+  }
+
+  .conquest-event {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .conquest-event__index {
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.86rem;
+  }
+}

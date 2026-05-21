@@ -3,6 +3,8 @@ import Hero from "../components/Hero.jsx";
 import Timeline from "../components/Timeline.jsx";
 import EraSection from "../components/EraSection.jsx";
 import HouseCard from "../components/HouseCard.jsx";
+import ConquestChapter from "../components/ConquestChapter.jsx";
+import { aegonsConquestChapter } from "../data/aegonsConquest.js";
 import { featuredTimeline, timelineEras } from "../data/timeline.js";
 import { houses } from "../data/houses.js";
 
@@ -31,6 +33,7 @@ export default function Home() {
       </section>
 
       <Timeline eras={featuredTimeline} />
+      <ConquestChapter chapter={aegonsConquestChapter} />
       <EraSection eras={featuredTimeline.slice(0, 4)} />
 
       <section className="house-section" id="houses" aria-labelledby="houses-title">

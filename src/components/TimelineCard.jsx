@@ -33,6 +33,12 @@ export default function TimelineCard({ era, index }) {
             <dd>{era.tone}</dd>
           </div>
         </dl>
+
+        {era.chapterHref ? (
+          <a className="timeline-card__link" href={era.chapterHref}>
+            {era.chapterLabel}
+          </a>
+        ) : null}
       </div>
     </article>
   );
