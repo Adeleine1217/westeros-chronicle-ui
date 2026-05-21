@@ -12,18 +12,19 @@ export default function Layout({ children }) {
           </span>
         </a>
 
+        <a
+          className="creator-link header-creator"
+          href="https://adeleine1217.github.io/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Created by Adeleine Wang
+        </a>
+
         <nav className="header-nav" aria-label="Archive sections">
           <a href="#chronicle">Timeline</a>
           <a href="#eras">Eras</a>
           <a href="#houses">Houses</a>
-          <a
-            className="creator-link creator-link--header"
-            href="https://adeleine1217.github.io/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Created by Adeleine Wang
-          </a>
         </nav>
       </header>
 
