@@ -1,0 +1,39 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#1a1511"/>
+  <g opacity="0.42">
+    <path d="M266 105C352 142 403 220 374 293C350 353 271 374 236 442C194 525 244 627 190 704C153 757 76 773 42 830" stroke="#c8a45d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M477 81C557 138 578 236 535 314C487 401 386 438 387 535C389 632 491 692 505 787C514 851 481 907 455 956" stroke="#b4853f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M752 35C687 123 687 235 765 301C842 366 964 337 1017 424C1068 507 1013 602 1059 682C1112 773 1244 760 1305 836C1339 879 1344 927 1339 978" stroke="#c8a45d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M1150 72C1096 151 1124 244 1204 284C1277 320 1392 283 1447 350C1512 430 1431 535 1475 617C1505 674 1571 696 1600 755" stroke="#8f342c" stroke-width="5" stroke-linecap="round"/>
+    <path d="M650 835C733 778 848 768 930 828C998 879 1060 909 1145 879" stroke="#8f342c" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.24" stroke="#ead6a3" stroke-width="2">
+    <circle cx="321" cy="205" r="58"/>
+    <circle cx="885" cy="250" r="82"/>
+    <circle cx="1241" cy="213" r="45"/>
+    <circle cx="777" cy="718" r="67"/>
+    <circle cx="1367" cy="669" r="52"/>
+  </g>
+  <g opacity="0.55" fill="#ead6a3">
+    <circle cx="321" cy="205" r="7"/>
+    <circle cx="885" cy="250" r="8"/>
+    <circle cx="1241" cy="213" r="6"/>
+    <circle cx="777" cy="718" r="7"/>
+    <circle cx="1367" cy="669" r="6"/>
+    <circle cx="476" cy="508" r="5"/>
+    <circle cx="1036" cy="576" r="5"/>
+  </g>
+  <g opacity="0.18" stroke="#ead6a3" stroke-width="1">
+    <path d="M130 160H1480"/>
+    <path d="M130 320H1480"/>
+    <path d="M130 480H1480"/>
+    <path d="M130 640H1480"/>
+    <path d="M130 800H1480"/>
+    <path d="M240 70V930"/>
+    <path d="M480 70V930"/>
+    <path d="M720 70V930"/>
+    <path d="M960 70V930"/>
+    <path d="M1200 70V930"/>
+    <path d="M1440 70V930"/>
+  </g>
+</svg>
