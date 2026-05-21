@@ -8,7 +8,7 @@ export default function Layout({ children }) {
           </span>
           <span>
             <strong>Westeros Chronicle</strong>
-            <small>Interactive archive UI</small>
+            <small>Interactive history archive</small>
           </span>
         </a>
 
@@ -22,10 +22,20 @@ export default function Layout({ children }) {
       <main>{children}</main>
 
       <footer className="site-footer">
-        <p>
-          Unofficial fan-made UI and storytelling project for educational and
-          portfolio use. No copyrighted book text is reproduced.
-        </p>
+        <div>
+          <p>
+            Unofficial fan-made storytelling project for educational and
+            portfolio use. No copyrighted book text is reproduced.
+          </p>
+          <a
+            className="creator-link"
+            href="https://adeleine1217.github.io/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Created by Adeleine Wang
+          </a>
+        </div>
       </footer>
     </div>
   );
