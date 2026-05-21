@@ -16,26 +16,24 @@ export default function Layout({ children }) {
           <a href="#chronicle">Timeline</a>
           <a href="#eras">Eras</a>
           <a href="#houses">Houses</a>
-        </nav>
-      </header>
-
-      <main>{children}</main>
-
-      <footer className="site-footer">
-        <div>
-          <p>
-            Unofficial fan-made storytelling project for educational and
-            portfolio use. No copyrighted book text is reproduced.
-          </p>
           <a
-            className="creator-link"
+            className="creator-link creator-link--header"
             href="https://adeleine1217.github.io/"
             target="_blank"
             rel="noreferrer"
           >
             Created by Adeleine Wang
           </a>
-        </div>
+        </nav>
+      </header>
+
+      <main>{children}</main>
+
+      <footer className="site-footer">
+        <p>
+          Unofficial fan-made storytelling project for educational and
+          portfolio use. No copyrighted book text is reproduced.
+        </p>
       </footer>
     </div>
   );

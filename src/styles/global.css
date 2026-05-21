@@ -465,6 +465,17 @@ h3 {
   transform: translateY(-1px);
 }
 
+.creator-link--header {
+  min-height: 2.35rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  text-transform: none;
+}
+
+.header-nav .creator-link--header::after {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .site-header {
     position: absolute;
