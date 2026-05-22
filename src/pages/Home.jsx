@@ -41,8 +41,9 @@ export default function Home() {
           <p className="eyebrow">Power and inheritance</p>
           <h2 id="houses-title">Houses as archive lenses</h2>
           <p>
-            Future versions can connect houses, characters, conflicts, and maps
-            without turning the experience into a conventional wiki.
+            The great houses frame Westeros through bloodlines, regional power,
+            inherited symbols, and the stories each seat teaches the realm to
+            remember.
           </p>
         </div>
 
