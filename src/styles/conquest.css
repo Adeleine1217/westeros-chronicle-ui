@@ -151,14 +151,372 @@
   transform: rotate(-18deg);
 }
 
-.conquest-block {
-  padding: clamp(3.5rem, 7vw, 6rem) 0 0;
+.conquest-archive {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(9.5rem, 13rem) minmax(0, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.4rem);
+  padding-top: clamp(3.5rem, 7vw, 6rem);
 }
 
-.conquest-block .section-heading h3,
+.conquest-archive::before {
+  position: absolute;
+  inset: 0 -1rem auto 5rem;
+  height: 14rem;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 20% 40%, rgba(208, 111, 60, 0.17), transparent 13rem),
+    radial-gradient(circle at 78% 12%, rgba(111, 138, 121, 0.12), transparent 17rem);
+  filter: blur(2px);
+}
+
+.conquest-archive-nav {
+  position: sticky;
+  top: 6rem;
+  z-index: 2;
+}
+
+.conquest-archive-nav__plate {
+  position: relative;
+  min-height: 34rem;
+  border: 1px solid rgba(201, 160, 90, 0.24);
+  padding: 1rem 0.75rem;
+  background:
+    linear-gradient(180deg, rgba(208, 111, 60, 0.1), rgba(232, 212, 168, 0.04)),
+    rgba(16, 13, 12, 0.68);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+}
+
+.conquest-archive-nav__plate::before,
+.conquest-archive-nav__plate::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.conquest-archive-nav__plate::before {
+  top: 3.5rem;
+  bottom: 2.2rem;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(208, 111, 60, 0.76), transparent);
+}
+
+.conquest-archive-nav__plate::after {
+  right: -4.5rem;
+  bottom: -4.5rem;
+  width: 11rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(201, 160, 90, 0.22);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(201, 160, 90, 0.18) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(208, 111, 60, 0.16) 50%, transparent 51%);
+  opacity: 0.64;
+}
+
+.conquest-archive-nav__label {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 1.1rem;
+  color: var(--dim);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.conquest-archive-nav__rings {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  width: 7.2rem;
+  aspect-ratio: 1;
+  border: 1px solid rgba(208, 111, 60, 0.24);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 42%, rgba(201, 160, 90, 0.15) 43%, transparent 45%),
+    conic-gradient(from 90deg, transparent, rgba(208, 111, 60, 0.2), transparent 34%);
+  transform: translateX(-50%);
+  opacity: 0.82;
+}
+
+.conquest-archive-nav__buttons {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.conquest-archive-nav__button {
+  position: relative;
+  display: grid;
+  width: 5.35rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(232, 212, 168, 0.22);
+  border-radius: 50%;
+  padding: 0;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(245, 234, 212, 0.18), transparent 24%),
+    conic-gradient(from 145deg, rgba(208, 111, 60, 0.42), rgba(142, 47, 43, 0.52), rgba(201, 160, 90, 0.28), rgba(111, 138, 121, 0.32)),
+    rgba(32, 24, 20, 0.96);
+  color: var(--parchment);
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 0 0.45rem rgba(16, 13, 12, 0.84),
+    0 14px 34px rgba(0, 0, 0, 0.28);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.conquest-archive-nav__button::before {
+  position: absolute;
+  inset: -0.38rem;
+  border: 1px solid rgba(208, 111, 60, 0.24);
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  transform: scale(0.88) rotate(0deg);
+  transition:
+    opacity 180ms ease,
+    transform 260ms ease;
+}
+
+.conquest-archive-nav__button:hover,
+.conquest-archive-nav__button:focus-visible,
+.conquest-archive-nav__button--active {
+  border-color: rgba(232, 212, 168, 0.78);
+  box-shadow:
+    inset 0 0 0 0.42rem rgba(16, 13, 12, 0.72),
+    0 0 0 0.18rem rgba(208, 111, 60, 0.15),
+    0 18px 40px rgba(0, 0, 0, 0.34),
+    0 0 36px rgba(208, 111, 60, 0.2);
+  transform: translateY(-2px);
+}
+
+.conquest-archive-nav__button:hover::before,
+.conquest-archive-nav__button:focus-visible::before,
+.conquest-archive-nav__button--active::before {
+  opacity: 1;
+  transform: scale(1) rotate(12deg);
+}
+
+.conquest-archive-nav__button--active {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(245, 234, 212, 0.32), transparent 24%),
+    conic-gradient(from 145deg, rgba(208, 111, 60, 0.66), rgba(142, 47, 43, 0.72), rgba(201, 160, 90, 0.5), rgba(111, 138, 121, 0.42)),
+    rgba(32, 24, 20, 0.96);
+}
+
+.conquest-archive-nav__number,
+.conquest-archive-nav__sigil,
+.conquest-archive-nav__name {
+  position: absolute;
+}
+
+.conquest-archive-nav__number {
+  top: 0.72rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.conquest-archive-nav__sigil {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.conquest-archive-nav__name {
+  right: -0.45rem;
+  bottom: 0.55rem;
+  left: -0.45rem;
+  color: var(--gold);
+  font-size: 0.5rem;
+  font-weight: 800;
+  line-height: 1.08;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.conquest-block-stack {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.conquest-block {
+  position: relative;
+  scroll-margin-top: 8rem;
+}
+
+.conquest-block__shell {
+  position: relative;
+  display: grid;
+  min-height: 7.8rem;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid rgba(232, 212, 168, 0.14);
+  padding: clamp(0.95rem, 2vw, 1.28rem);
+  background:
+    linear-gradient(120deg, rgba(232, 212, 168, 0.08), transparent 44%),
+    linear-gradient(180deg, rgba(35, 26, 22, 0.82), rgba(19, 15, 13, 0.68));
+  box-shadow: 0 15px 34px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+.conquest-block__shell::after {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 5.5rem;
+  aspect-ratio: 1;
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgba(208, 111, 60, 0.18);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(201, 160, 90, 0.13) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(208, 111, 60, 0.14) 50%, transparent 51%);
+  opacity: 0.44;
+}
+
+.conquest-block:not(.conquest-block--active) .conquest-block__shell {
+  cursor: pointer;
+}
+
+.conquest-block--active {
+  animation: conquest-block-pop 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+.conquest-block--active .conquest-block__shell {
+  border-color: rgba(208, 111, 60, 0.5);
+  background:
+    radial-gradient(circle at 94% 8%, rgba(208, 111, 60, 0.13), transparent 10rem),
+    linear-gradient(120deg, rgba(232, 212, 168, 0.12), transparent 44%),
+    linear-gradient(180deg, rgba(35, 26, 22, 0.95), rgba(19, 15, 13, 0.82));
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(142, 47, 43, 0.12);
+}
+
+.conquest-block__seal {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 3.75rem;
+  height: 3.75rem;
+  place-items: center;
+  align-self: start;
+  border: 1px solid rgba(201, 160, 90, 0.48);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 36% 30%, rgba(245, 234, 212, 0.22), rgba(142, 47, 43, 0.2) 50%, rgba(32, 24, 20, 0.94)),
+    var(--charcoal-3);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+
+.conquest-block__seal span,
+.conquest-block__seal strong {
+  position: absolute;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.conquest-block__seal span {
+  top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.conquest-block__seal strong {
+  color: var(--ink);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.conquest-block--active .conquest-block__seal {
+  border-color: rgba(232, 212, 168, 0.84);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(208, 111, 60, 0.18);
+}
+
+.conquest-block__main {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.conquest-block__heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 2.5rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.conquest-block__heading h3,
 .political-panel h3,
 .tone-panel h3 {
   font-size: clamp(1.9rem, 4vw, 3.65rem);
+}
+
+.conquest-block__summary {
+  width: min(42rem, 100%);
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.conquest-block:not(.conquest-block--active) .conquest-block__summary {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.conquest-block__toggle {
+  display: grid;
+  width: 2.45rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(201, 160, 90, 0.52);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(232, 212, 168, 0.12), rgba(142, 47, 43, 0.18)),
+    rgba(16, 13, 12, 0.86);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.conquest-block__toggle:hover,
+.conquest-block__toggle:focus-visible {
+  border-color: rgba(232, 212, 168, 0.82);
+  transform: rotate(12deg) scale(1.04);
+}
+
+.conquest-block__reveal {
+  margin-top: 1.2rem;
+  animation: conquest-block-reveal 360ms ease both;
 }
 
 .conquest-prose {
@@ -397,11 +755,85 @@
   text-transform: uppercase;
 }
 
+@keyframes conquest-block-pop {
+  0% {
+    transform: translateY(12px) scale(0.98);
+  }
+
+  55% {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes conquest-block-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conquest-block--active,
+  .conquest-block__reveal {
+    animation: none;
+  }
+}
+
 @media (max-width: 980px) {
   .conquest-hero,
   .political-panel,
   .tone-panel {
     grid-template-columns: 1fr;
+  }
+
+  .conquest-archive {
+    grid-template-columns: 1fr;
+  }
+
+  .conquest-archive-nav {
+    position: relative;
+    top: auto;
+  }
+
+  .conquest-archive-nav__plate {
+    min-height: auto;
+    padding: 0.9rem;
+  }
+
+  .conquest-archive-nav__plate::before {
+    top: 50%;
+    right: 1rem;
+    bottom: auto;
+    left: 1rem;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(208, 111, 60, 0.7), transparent);
+  }
+
+  .conquest-archive-nav__rings {
+    display: none;
+  }
+
+  .conquest-archive-nav__label {
+    text-align: left;
+  }
+
+  .conquest-archive-nav__buttons {
+    grid-template-columns: repeat(5, minmax(4.2rem, 1fr));
+    gap: 0.7rem;
+  }
+
+  .conquest-archive-nav__button {
+    width: min(5rem, 100%);
   }
 
   .conquest-hero__artifact {
@@ -420,6 +852,53 @@
 @media (max-width: 700px) {
   .conquest-chapter {
     width: min(100% - 1rem, 1180px);
+  }
+
+  .conquest-archive-nav__buttons {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0.2rem 0 0.55rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .conquest-archive-nav__button {
+    width: 4.6rem;
+    flex: 0 0 4.6rem;
+    scroll-snap-align: start;
+  }
+
+  .conquest-archive-nav__name {
+    font-size: 0.46rem;
+  }
+
+  .conquest-block__shell {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.95rem;
+  }
+
+  .conquest-block__seal {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .conquest-block__seal span {
+    top: 0.38rem;
+    font-size: 0.52rem;
+  }
+
+  .conquest-block__seal strong {
+    font-size: 1.22rem;
+  }
+
+  .conquest-block__heading {
+    grid-template-columns: minmax(0, 1fr) 2.15rem;
+    gap: 0.7rem;
+  }
+
+  .conquest-block__toggle {
+    width: 2.15rem;
   }
 
   .conquest-prose,
