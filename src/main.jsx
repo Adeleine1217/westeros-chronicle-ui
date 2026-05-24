@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./styles/global.css";
 import "./styles/timeline.css";
 import "./styles/conquest.css";
+import "./styles/series.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

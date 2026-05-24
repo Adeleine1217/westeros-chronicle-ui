@@ -23,6 +23,8 @@ export default function Layout({ children }) {
 
         <nav className="header-nav" aria-label="Archive sections">
           <a href="#chronicle">Timeline</a>
+          <a href="#main-series">Storyline</a>
+          <a href="#characters">Characters</a>
           <a href="#eras">Eras</a>
           <a href="#houses">Houses</a>
         </nav>
