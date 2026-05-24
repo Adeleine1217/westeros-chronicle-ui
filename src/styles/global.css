@@ -208,6 +208,42 @@ h3 {
   object-fit: cover;
   object-position: 62% center;
   transform: scale(1.01);
+  transition: transform 600ms ease, filter 600ms ease;
+  will-change: transform;
+}
+
+.arcane-frame {
+  --arcane-x: 68%;
+  --arcane-y: 38%;
+  --arcane-scroll: 0.5;
+  --arcane-drift: 0px;
+  --arcane-tilt-x: 0deg;
+  --arcane-tilt-y: 0deg;
+}
+
+.arcane-frame[data-arcane-ready="true"] img {
+  transform:
+    translate3d(calc(var(--arcane-drift) * -0.22), calc(var(--arcane-drift) * 0.12), 0)
+    rotateX(var(--arcane-tilt-x))
+    rotateY(var(--arcane-tilt-y))
+    scale(1.045);
+  filter:
+    contrast(calc(1.03 + (var(--arcane-scroll) * 0.04)))
+    saturate(calc(0.95 + (var(--arcane-scroll) * 0.12)));
+}
+
+.arcane-frame[data-arcane-ready="true"] .hero__backdrop::after {
+  background:
+    radial-gradient(circle at var(--arcane-x) var(--arcane-y), rgba(245, 234, 212, 0.18), transparent 12rem),
+    radial-gradient(circle at 76% 34%, rgba(232, 212, 168, 0.1), transparent 17rem),
+    radial-gradient(circle at 28% 60%, rgba(142, 47, 43, 0.2), transparent 24rem),
+    linear-gradient(180deg, rgba(13, 11, 10, 0.08), rgba(13, 11, 10, 0.84));
+}
+
+.arcane-frame--hero .hero__backdrop {
+  transform: translate3d(0, calc(var(--arcane-drift) * 0.2), 0);
+  transition: transform 600ms ease;
+  will-change: transform;
 }
 
 .hero::after {

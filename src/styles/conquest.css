@@ -78,77 +78,59 @@
   line-height: 1.8;
 }
 
-.conquest-hero__artifact {
+.conquest-hero__visual {
   position: relative;
   z-index: 1;
+  margin: 0;
   min-height: 25rem;
   border-left: 1px solid rgba(232, 212, 168, 0.14);
-  background:
-    radial-gradient(circle at 68% 35%, rgba(208, 111, 60, 0.58), transparent 4.6rem),
-    radial-gradient(circle at 56% 30%, rgba(245, 234, 212, 0.24), transparent 1.7rem),
-    linear-gradient(145deg, rgba(12, 10, 9, 0.1), rgba(12, 10, 9, 0.84)),
-    url("../assets/archive-map.svg") center / cover no-repeat;
+  background: #090807;
   overflow: hidden;
+  perspective: 900px;
 }
 
-.conquest-hero__artifact::before,
-.conquest-hero__artifact::after {
+.conquest-hero__visual::before,
+.conquest-hero__visual::after {
   position: absolute;
+  inset: 0;
   content: "";
+  pointer-events: none;
 }
 
-.conquest-hero__artifact::before {
-  right: 14%;
-  top: 18%;
-  width: 54%;
-  aspect-ratio: 1;
-  border: 1px solid rgba(232, 212, 168, 0.24);
-  border-radius: 50%;
-  background:
-    linear-gradient(90deg, transparent 49%, rgba(232, 212, 168, 0.18) 50%, transparent 51%),
-    linear-gradient(0deg, transparent 49%, rgba(232, 212, 168, 0.14) 50%, transparent 51%);
-}
-
-.conquest-hero__artifact::after {
-  left: 18%;
-  bottom: 18%;
-  width: 58%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--ember), transparent);
-  box-shadow: 0 0 28px rgba(208, 111, 60, 0.9);
-  transform: rotate(-18deg);
-}
-
-.conquest-hero__artifact span,
-.conquest-hero__artifact strong {
-  position: absolute;
+.conquest-hero__visual::before {
   z-index: 1;
-  color: var(--parchment);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  background:
+    radial-gradient(circle at var(--arcane-x) var(--arcane-y), rgba(245, 234, 212, 0.18), transparent 13rem),
+    radial-gradient(circle at 72% 28%, rgba(208, 111, 60, 0.16), transparent 16rem),
+    linear-gradient(90deg, rgba(9, 8, 7, 0.8), transparent 35%, rgba(9, 8, 7, 0.26)),
+    linear-gradient(0deg, rgba(16, 13, 12, 0.84), transparent 38%, rgba(16, 13, 12, 0.28));
+  mix-blend-mode: screen;
+  opacity: 0.88;
 }
 
-.conquest-hero__artifact span {
-  right: 12%;
-  top: 14%;
+.conquest-hero__visual::after {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 16% 72%, rgba(201, 160, 90, 0.55) 0 0.08rem, transparent 0.1rem),
+    radial-gradient(circle at 48% 18%, rgba(245, 234, 212, 0.35) 0 0.07rem, transparent 0.09rem),
+    radial-gradient(circle at 78% 62%, rgba(208, 111, 60, 0.38) 0 0.08rem, transparent 0.1rem),
+    linear-gradient(115deg, transparent 30%, rgba(232, 212, 168, 0.12) 48%, transparent 64%);
+  background-size: 11rem 11rem, 13rem 13rem, 17rem 17rem, 100% 100%;
+  opacity: 0.34;
+  transform: translate3d(0, calc(var(--arcane-drift) * -0.5), 0);
+  animation: arcane-embers 9s linear infinite;
 }
 
-.conquest-hero__artifact strong {
-  left: 12%;
-  bottom: 16%;
-}
-
-.conquest-hero__artifact i {
-  position: absolute;
-  right: 22%;
-  top: 32%;
-  width: 4.8rem;
-  height: 1.35rem;
-  background: rgba(12, 10, 9, 0.78);
-  clip-path: polygon(0 50%, 35% 0, 100% 18%, 42% 52%, 100% 88%, 36% 100%);
-  filter: drop-shadow(0 0 18px rgba(208, 111, 60, 0.62));
-  transform: rotate(-18deg);
+.conquest-hero__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 34rem;
+  object-fit: cover;
+  object-position: 58% center;
+  transform: scale(1.02);
+  transition: transform 600ms ease, filter 600ms ease;
+  will-change: transform;
 }
 
 .conquest-archive {
@@ -781,9 +763,20 @@
   }
 }
 
+@keyframes arcane-embers {
+  from {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+
+  to {
+    background-position: 0 -11rem, 0 -13rem, 0 -17rem, 0 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .conquest-block--active,
-  .conquest-block__reveal {
+  .conquest-block__reveal,
+  .conquest-hero__visual::after {
     animation: none;
   }
 }
@@ -836,10 +829,15 @@
     width: min(5rem, 100%);
   }
 
-  .conquest-hero__artifact {
+  .conquest-hero__visual {
     min-height: 20rem;
     border-left: 0;
     border-top: 1px solid rgba(232, 212, 168, 0.14);
+  }
+
+  .conquest-hero__visual img {
+    min-height: 22rem;
+    object-position: 62% center;
   }
 
   .conquest-card-grid--figures,

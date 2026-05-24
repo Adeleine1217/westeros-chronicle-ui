@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import conquestHeroImage from "../../assets/images/aegons-conquest-hero-aegon-visenya-rhaenys.png";
 
 const conquestBlocks = [
   {
@@ -130,11 +131,15 @@ export default function ConquestChapter({ chapter }) {
           <p className="conquest-hero__subtitle">{chapter.subtitle}</p>
           <p className="conquest-hero__intro">{chapter.intro}</p>
         </div>
-        <div className="conquest-hero__artifact" aria-hidden="true">
-          <span>Dragonstone</span>
-          <strong>Blackwater</strong>
-          <i />
-        </div>
+        <figure
+          className="conquest-hero__visual arcane-frame arcane-frame--chapter"
+          data-arcane-image
+        >
+          <img
+            src={conquestHeroImage}
+            alt="Aegon Targaryen standing with Visenya and Rhaenys on a stormy shoreline, with dragons, banners, and soldiers behind them in a dark fantasy scene."
+          />
+        </figure>
       </div>
 
       <div className="conquest-archive">

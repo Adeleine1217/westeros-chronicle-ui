@@ -2,7 +2,11 @@ import aegonsConquestHero from "../assets/aegons-conquest-hero-aegon-visenya-rha
 
 export default function Hero() {
   return (
-    <section className="hero" id="top">
+    <section
+      className="hero arcane-frame arcane-frame--hero"
+      id="top"
+      data-arcane-image
+    >
       <div className="hero__backdrop">
         <img
           className="hero__image"
