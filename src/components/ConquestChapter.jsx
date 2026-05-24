@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import conquestHeroImage from "../../assets/images/aegons-conquest-hero-aegon-visenya-rhaenys.png";
+import conquestHeroImage from "../assets/images/aegons-conquest-hero-aegon-visenya-rhaenys.png";
 
 const conquestBlocks = [
   {
