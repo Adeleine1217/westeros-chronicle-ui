@@ -1,5 +1,21 @@
 import { useMemo, useState } from "react";
 
+const houseVariants = [
+  ["Targaryen", "crimson"],
+  ["Stark", "steel"],
+  ["Baratheon", "gold"],
+  ["Stannis", "gold"],
+  ["Lannister", "amber"],
+  ["Arryn", "blue"],
+  ["Tully", "blue"],
+  ["Tyrell", "green"],
+  ["Greyjoy", "sea"],
+  ["Martell", "copper"],
+];
+
+const getHouseVariant = (house = "") =>
+  houseVariants.find(([name]) => house.includes(name))?.[1] ?? "steel";
+
 export default function CharacterIntroductions({
   characters = [],
   groups = [],
@@ -55,30 +71,37 @@ export default function CharacterIntroductions({
       </div>
 
       <div className="character-grid">
-        {visibleCharacters.map((character) => (
-          <article className="character-card" key={character.id}>
-            <div className="character-card__mark" aria-hidden="true">
-              {character.name
-                .split(" ")
-                .map((part) => part.slice(0, 1))
-                .join("")
-                .slice(0, 2)}
-            </div>
-            <div className="character-card__body">
-              <p>{character.house}</p>
-              <h3>{character.name}</h3>
-              <span>{character.role}</span>
-              <strong>{character.arc}</strong>
-              <p className="character-card__intro">{character.introduction}</p>
-              <div className="character-card__meta">
-                <span>{character.entryPoint}</span>
-                {character.traits.map((trait) => (
-                  <span key={trait}>{trait}</span>
-                ))}
+        {visibleCharacters.map((character) => {
+          const variant = getHouseVariant(character.house);
+
+          return (
+            <article
+              className={`character-card character-card--${variant}`}
+              key={character.id}
+            >
+              <div className="character-card__mark" aria-hidden="true">
+                {character.name
+                  .split(" ")
+                  .map((part) => part.slice(0, 1))
+                  .join("")
+                  .slice(0, 2)}
               </div>
-            </div>
-          </article>
-        ))}
+              <div className="character-card__body">
+                <p>{character.house}</p>
+                <h3>{character.name}</h3>
+                <span>{character.role}</span>
+                <strong>{character.arc}</strong>
+                <p className="character-card__intro">{character.introduction}</p>
+                <div className="character-card__meta">
+                  <span>{character.entryPoint}</span>
+                  {character.traits.map((trait) => (
+                    <span key={trait}>{trait}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

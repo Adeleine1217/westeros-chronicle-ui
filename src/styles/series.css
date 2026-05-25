@@ -299,8 +299,48 @@
   border: 1px solid rgba(201, 160, 90, 0.36);
   background: rgba(232, 212, 168, 0.08);
   color: var(--gold);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display-font);
   font-size: 0.9rem;
+}
+
+.character-card--crimson .character-card__mark {
+  background: rgba(142, 47, 43, 0.58);
+  color: var(--parchment);
+}
+
+.character-card--steel .character-card__mark {
+  background: rgba(95, 111, 122, 0.5);
+  color: var(--ink);
+}
+
+.character-card--gold .character-card__mark {
+  background: rgba(201, 160, 90, 0.48);
+  color: var(--ink);
+}
+
+.character-card--amber .character-card__mark {
+  background: rgba(208, 111, 60, 0.48);
+  color: var(--ink);
+}
+
+.character-card--blue .character-card__mark {
+  background: rgba(74, 111, 151, 0.52);
+  color: var(--ink);
+}
+
+.character-card--green .character-card__mark {
+  background: rgba(79, 124, 78, 0.52);
+  color: var(--ink);
+}
+
+.character-card--sea .character-card__mark {
+  background: rgba(61, 124, 132, 0.5);
+  color: var(--ink);
+}
+
+.character-card--copper .character-card__mark {
+  background: rgba(176, 86, 49, 0.5);
+  color: var(--ink);
 }
 
 .character-card__body {
